@@ -18,6 +18,7 @@ class HomeView extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 'Tips you should know',
@@ -39,7 +40,10 @@ class HomeView extends StatelessWidget {
               SizedBox(height: 2.h),
               Text(
                 'Click here to start:',
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(height: 60.h),
               GestureDetector(
@@ -47,8 +51,10 @@ class HomeView extends StatelessWidget {
                       MaterialPageRoute(builder: (_) => const DetailView())),
                   child: Text(
                     'START',
-                    style:
-                        TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   )),
             ],
           ),

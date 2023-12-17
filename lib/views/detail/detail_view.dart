@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:size_adapter/size_adapter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailView extends StatelessWidget {
   const DetailView({super.key});
@@ -51,7 +52,7 @@ class DetailView extends StatelessWidget {
               ),
               SizedBox(height: 60.h),
               GestureDetector(
-                  onTap: () {},
+                  onTap: () => _openYoutubeVideo(),
                   child: Text(
                     'Click Here',
                     style:
@@ -62,6 +63,19 @@ class DetailView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _openYoutubeVideo() async {
+    String youtubeVideoUrl = 'https://www.youtube.com/watch?v=qVaiScmnc9s';
+    await _lunchUrl(target: youtubeVideoUrl, url: 'https');
+  }
+
+  /// Url Launcher
+  Future<void> _lunchUrl({required String target, required String url}) async {
+    final Uri uri = Uri.parse('$target:$url');
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    }
   }
 }
 
